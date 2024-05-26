@@ -118,6 +118,14 @@
     .faded {
       opacity: 0.5;
     }
+    .s-header__logo .logo span {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    }
+
     </style>
     <script>
         document.documentElement.classList.remove('no-js');
@@ -161,29 +169,26 @@
         <!-- # site header 
         ================================================== -->
         <header class="s-header">
-            <div class="row s-header__inner">
+    <div class="row s-header__inner">
+        <div class="s-header__block">
+            <div class="s-header__logo">
+                <a class="logo" href="index.html">
+                    <span>Denylandia Animes</span>
+                </a>
+            </div>
+            <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
+        </div> <!-- end s-header__block -->
+        <nav class="s-header__nav">    
+            <ul class="s-header__menu-links">
+                <li class="current"><a class="smoothscroll" href="#intro">Home</a></li>
+                <li><a class="smoothscroll" href="#about">Sobre</a></li>
+                <li><a class="smoothscroll" href="#works">Animes</a></li>
+                <li><a class="smoothscroll" href="#footer">Contacto</a></li>
+            </ul> <!-- s-header__menu-links -->    
+        </nav> <!-- end s-header__nav -->
+    </div> <!-- end s-header__inner -->
+</header> <!-- end s-header -->
 
-                <div class="s-header__block">
-                    <div class="s-header__logo">
-                        <a class="logo" href="index.html">
-                            <img src="images/logo.svg" alt="Homepage">
-                        </a>
-                    </div>
-
-                    <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
-                </div> <!-- end s-header__block -->
-
-                <nav class="s-header__nav">    
-                    <ul class="s-header__menu-links">
-                        <li class="current"><a class="smoothscroll" href="#intro">Home</a></li>
-                        <li><a class="smoothscroll" href="#about">Sobre</a></li>
-                        <li><a class="smoothscroll" href="#works">Animes</a></li>
-                        <li><a class="smoothscroll" href="#footer">Contacto</a></li>
-                    </ul> <!-- s-header__menu-links -->    
-                </nav> <!-- end s-header__nav -->
-
-            </div> <!-- end s-header__inner -->
-        </header> <!-- end s-header -->
 
 
         <!-- # intro
@@ -197,13 +202,13 @@
 
                         <div class="s-intro__content-pretitle text-pretitle">Olá</div>
                         <h1 class="s-intro__content-title">
-                        Eu sou Deny Neves <br>
-                        Otaku á cinco anos <br>
-                        vem viajar comigo.
+                        Eu sou Deny viaja <br>
+                        comigo em aventuras<br>
+                        epicas de Animes.
                         </h1>                            
 
                         <div class="s-intro__content-btns">
-                            <a class="smoothscroll btn" href="#about">Mais Sobre Me</a>
+                            <a class="smoothscroll btn" href="#about">Mais Sobre Mim</a>
                             <a class="smoothscroll btn btn--stroke" href="#footer">Fala Comigo</a>
                         </div> <!-- s-intro__content-btns -->   
 
@@ -732,7 +737,7 @@
   </div>
 </div>
 
-<hr class="separator">
+<hr>
 
 <h1>Filmes Diversos</h1>
 <div class="anime-queue">
