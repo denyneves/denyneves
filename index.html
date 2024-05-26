@@ -1,132 +1,146 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en" class="no-js" >
 <head>
 
-    <!--- basic page needs ================================================== -->
+    <!--- basic page needs
+    ================================================== -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Meu Site Otaku</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .card-img-top {
             height: 200px;
             object-fit: cover;
         }
+       body {
+      font-family: Arial, sans-serif;
+    }
 
-        body {
-            font-family: Arial, sans-serif;
-        }
+    .anime-queue {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
-        .anime-queue {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
+    .anime-card {
+      width: 200px;
+      margin: 10px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+    }
 
-        .anime-card {
-            width: 200px;
-            margin: 10px;
-            text-align: center;
-            transition: transform 0.2s, box-shadow 0.2s;
-            position: relative;
-        }
+    .anime-card img {
+      width: 100%;
+      height: auto;
+    }
 
-        .anime-card img {
-            width: 100%;
-            height: auto;
-        }
+    .anime-card span {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
 
-        .anime-card span {
-            display: block;
-            margin-top: 10px;
-            font-weight: bold;
-        }
+    .play-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 24px;
+      color: white;
+      display: none;
+    }
 
-        .play-icon {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 24px;
-            color: white;
-            display: none;
-        }
+    .anime-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 
-        .anime-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
+    .anime-card:hover .play-icon {
+      display: block;
+    }
 
-        .anime-card:hover .play-icon {
-            display: block;
-        }
+    @media (max-width: 600px) {
+      .anime-card {
+        width: 100%;
+      }
+    }
+    /* Exemplo de ajuste de layout para mobile */
+        @media (max-width: 576px) {
+        .header {
+        text-align: center;
+        font-size: 1.2rem;
+    }
 
-        @media (max-width: 600px) {
-            .anime-card {
-                width: 100%;
-                margin: 5px 0;
-            }
-        }
+    .content {
+        padding: 1rem;
+    }
 
-        .separator {
-            border: 0;
-            height: 1px;
-            background: #ddd;
-            margin: 20px 0;
-        }
+    .footer {
+        text-align: center;
+        font-size: 0.8rem;
+    }
+}
 
-        #alphabet-menu a {
-            margin: 5px;
-            text-decoration: none;
-            color: #000;
-            font-weight: bold;
-        }
+    .separator {
+      border: 0;
+      height: 1px;
+      background: #ddd;
+      margin: 20px 0;
+    }
 
-        #alphabet-menu a:hover {
-            text-decoration: underline;
-        }
+    #alphabet-menu a {
+      margin: 5px;
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+    }
 
-        .search-container {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
+    #alphabet-menu a:hover {
+      text-decoration: underline;
+    }
 
-        #search-bar {
-            width: 200px;
-            padding: 5px;
-        }
+    .search-container {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
 
-        #lista-animes {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+    #search-bar {
+      width: 200px;
+      padding: 5px;
+    }
 
-        #lista-animes button {
-            margin: 5px;
-            padding: 10px 20px;
-            border: none;
-            background-color: #f0f0f0;
-            cursor: pointer;
-            font-weight: bold;
-        }
+    #lista-animes {
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-        #lista-animes button:hover {
-            background-color: #ddd;
-        }
+    #lista-animes button {
+      margin: 5px;
+      padding: 10px 20px;
+      border: none;
+      background-color: #f0f0f0;
+      cursor: pointer;
+      font-weight: bold;
+    }
 
-        .faded {
-            opacity: 0.5;
-        }
+    #lista-animes button:hover {
+      background-color: #ddd;
+    }
 
-        .s-header__logo .logo span {
-            font-size: 24px;
-            font-weight: bold;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+    .faded {
+      opacity: 0.5;
+    }
+    .s-header__logo .logo span {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    }
 
     </style>
     <script>
@@ -134,11 +148,13 @@
         document.documentElement.classList.add('js');
     </script>
 
-    <!-- CSS ================================================== -->
+    <!-- CSS
+    ================================================== -->
     <link rel="stylesheet" href="css/vendor.css">
     <link rel="stylesheet" href="css/styles.css">
 
-    <!-- favicons ================================================== -->
+    <!-- favicons
+    ================================================== -->
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -202,9 +218,9 @@
 
                         <div class="s-intro__content-pretitle text-pretitle">Olá</div>
                         <h1 class="s-intro__content-title">
-                        Eu sou Deny viaja <br>
-                        comigo em aventuras<br>
-                        epicas de Animes.
+                        Eu sou Deny, viaja <br>
+                        comigo em epicas<br>
+                        aventuras de Animes.
                         </h1>                            
 
                         <div class="s-intro__content-btns">
@@ -417,83 +433,8 @@
                 </div> <!-- end section-header -->
             </div>
         </div>
-
-        <div class="row">
-
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="images/folio/white_turban.jpg" class="card-img-top" alt="Death Note">
-                    <div class="card-body">
-                        <h5 class="card-title">Death Note</h5>
-                        <p class="card-text">Ação Investigação</p>
-                        <p class="card-text">Light Yagami, um estudante brilhante, encontra um caderno sobrenatural chamado "Death Note", que permite matar qualquer pessoa apenas escrevendo seu nome. Com o desejo de criar um mundo utópico livre de criminosos, Light assume o codinome "Kira".</p>
-                        <a href="https://www.behance.net/" class="btn btn-primary">Project Link</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="images/folio/woodcraft.jpg" class="card-img-top" alt="Kimetsu No Yaiba">
-                    <div class="card-body">
-                        <h5 class="card-title">Kimetsu No Yaiba</h5>
-                        <p class="card-text">Ação Horror Aventura</p>
-                        <p class="card-text">Tanjiro Kamado, um jovem bondoso, vê sua família ser massacrada por demônios, com sua irmã Nezuko sendo a única sobrevivente, mas transformada em demônio. Determinado a vingar sua família e encontrar uma cura para Nezuko, Tanjiro se junta ao Corpo de Exterminadores.</p>
-                        <a href="https://www.behance.net/" class="btn btn-primary">Project Link</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="images/folio/caffeine_and_tulips.jpg" class="card-img-top" alt="Bleach Sennen">
-                    <div class="card-body">
-                        <h5 class="card-title">Bleach Sennen</h5>
-                        <p class="card-text">Ação Jounen Drama</p>
-                        <p class="card-text">Ichigo Kurosaki, um adolescente com a habilidade de ver espíritos, acidentalmente adquire os poderes de um Shinigami (Ceifador de Almas) de Rukia Kuchiki. Agora, ele deve proteger os vivos de espíritos malignos conhecidos como Hollows.</p>
-                        <a href="https://www.behance.net/" class="btn btn-primary">Project Link</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="images/folio/grayscale.jpg" class="card-img-top" alt="Boku No Hero">
-                    <div class="card-body">
-                        <h5 class="card-title">Boku No Hero</h5>
-                        <p class="card-text">Ação Drama Aventura</p>
-                        <p class="card-text">Em um mundo onde quase toda a população tem superpoderes chamados "Quirks", Izuku Midoriya nasce sem nenhum poder, mas sonha em se tornar um herói como seu ídolo All Might. Quando All Might vê o potencial de Izuku.</p>
-                        <a href="https://www.behance.net/" class="btn btn-primary">Project Link</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="images/folio/lamp.jpg" class="card-img-top" alt="Jujutsu Kaisen">
-                    <div class="card-body">
-                        <h5 class="card-title">Jujutsu Kaisen</h5>
-                        <p class="card-text">Ação Horror Maldições</p>
-                        <p class="card-text">Yuji Itadori, um estudante do ensino médio com uma força física excepcional, acidentalmente se envolve no mundo dos Feiticeiros Jujutsu ao ingerir um dedo amaldiçoado de Sukuna, um poderoso espírito maligno. Para proteger seus amigos.</p>
-                        <a href="https://www.behance.net/" class="btn btn-primary">Project Link</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="images/folio/tropical.jpg" class="card-img-top" alt="Naruto Shippuden">
-                    <div class="card-body">
-                        <h5 class="card-title">Naruto Shippuden</h5>
-                        <p class="card-text">Ação Jounen Aventura</p>
-                        <p class="card-text">Naruto Uzumaki, um jovem ninja da Vila da Folha, sonha em se tornar Hokage, o líder e ninja mais forte de sua vila, para ganhar reconhecimento e respeito. Órfão e abrigando a Raposa de Nove Caudas dentro de si, Naruto enfrenta o desprezo dos aldeões.</p>
-                        <a href="https://www.behance.net/" class="btn btn-primary">Project Link</a>
-                    </div>
-                </div>
-            </div>
-
-             <div class="container">
-        <h1>Animes Recentes</h1>
+        <div class="anime-queue">
+        <h3>Animes Recentes</h3>
         <div class="anime-queue">
             <div class="anime-card">
                 <a href="https://animesonline.nz/animes/ninja-kamui/">
@@ -579,11 +520,33 @@
                   <div class="play-icon"><i class="fas fa-play"></i></div>
                 </a>
               </div>
-        </div>
+              <div class="anime-card">
+                <a href="https://animesonline.nz/animes/nanatsu-no-taizai-mokushiroku-no-yonkishi/">
+                  <img src="images/folio/atack.jpg" alt="Anime 2">
+                  <span>Nanatsu No Taizai</span>
+                  <div class="play-icon"><i class="fas fa-play"></i></div>
+                </a>
+              </div>
+              <div class="anime-card">
+                <a href="https://animesonline.nz/animes/nanatsu-no-taizai-mokushiroku-no-yonkishi/">
+                  <img src="images/folio/blue.jpg" alt="Anime 2">
+                  <span>Nanatsu No Taizai</span>
+                  <div class="play-icon"><i class="fas fa-play"></i></div>
+                </a>
+              </div>
+              <div class="anime-card">
+                <a href="https://animesonline.nz/animes/nanatsu-no-taizai-mokushiroku-no-yonkishi/">
+                  <img src="images/folio/hunter.jpg" alt="Anime 2">
+                  <span>Nanatsu No Taizai</span>
+                  <div class="play-icon"><i class="fas fa-play"></i></div>
+                </a>
+              </div>
+        </div>  
+
         
         <hr class="separator">
-
-        <h1>Animes Épicos</h1>
+    <div class="anime-queue">
+        <h3>Animes Épicos</h3>
         <div class="anime-queue">
             <div class="anime-card">
                 <a href="https://animesonline.nz/animes/blade-of-the-guardians/">
@@ -642,21 +605,21 @@
                 </a>
             </div>
             <div class="anime-card">
-                <a href="https://animesonline.nz/animes/left-hand-layup/">
-                    <img src="images/folio/card (17).jpg" alt="left hand layup">
-                    <span>left hand layup</span>
-                    <div class="play-icon"><i class="fas fa-play"></i></div>
-                </a>
-            </div>
-            <div class="anime-card">
                 <a href="https://animesonline.nz/animes/undead-unluck/">
                     <img src="images/folio/card (18).jpg" alt="Undead Unlock">
                     <span>Undead Unlock</span>
                     <div class="play-icon"><i class="fas fa-play"></i></div>
                 </a>
             </div>
-
-<h1>Filmes De Anime</h1>
+            <div class="anime-card">
+                <a href="https://animesonline.nz/animes/left-hand-layup/">
+                    <img src="images/folio/card (17).jpg" alt="left hand layup">
+                    <span>left hand layup</span>
+                    <div class="play-icon"><i class="fas fa-play"></i></div>
+                </a>
+            </div>
+<div class="anime-queue">
+<h3>Filmes De Anime</h3>
 <div class="anime-queue">
   <div class="anime-card">
     <a href="https://animesonline.nz/filmes/kung-fu-panda-4-dublado/">
@@ -735,11 +698,39 @@
       <div class="play-icon"><i class="fas fa-play"></i></div>
     </a>
   </div>
+  <div class="anime-card">
+    <a href="https://animesonline.nz/filmes/boku-no-hero-academia-the-movie-2-heroes-rising-dublado//">
+      <img src="images/folio/card (26).jpg" alt="Anime 2">
+      <span>Boku No Hero Movie</span>
+      <div class="play-icon"><i class="fas fa-play"></i></div>
+    </a>
+  </div>
+  <div class="anime-card">
+    <a href="https://animesonline.nz/filmes/boku-no-hero-academia-the-movie-2-heroes-rising-dublado//">
+      <img src="images/folio/card (26).jpg" alt="Anime 2">
+      <span>Boku No Hero Movie</span>
+      <div class="play-icon"><i class="fas fa-play"></i></div>
+    </a>
+  </div>
+  <div class="anime-card">
+    <a href="https://animesonline.nz/filmes/boku-no-hero-academia-the-movie-2-heroes-rising-dublado//">
+      <img src="images/folio/card (26).jpg" alt="Anime 2">
+      <span>Boku No Hero Movie</span>
+      <div class="play-icon"><i class="fas fa-play"></i></div>
+    </a>
+  </div>
+  <div class="anime-card">
+    <a href="https://animesonline.nz/filmes/boku-no-hero-academia-the-movie-2-heroes-rising-dublado//">
+      <img src="images/folio/card (26).jpg" alt="Anime 2">
+      <span>Boku No Hero Movie</span>
+      <div class="play-icon"><i class="fas fa-play"></i></div>
+    </a>
+  </div>
 </div>
 
 <hr>
 
-<h1>Filmes Diversos</h1>
+<h3>Filmes Diversos</h3>
 <div class="anime-queue">
 
   <div class="anime-card">
@@ -812,18 +803,7 @@
       <div class="play-icon"><i class="fas fa-play"></i></div>
     </a>
   </div>
-  <div class="anime-card">
-    <a href="https://filmesmega.online/beekeeper-rede-de-vinganca-dual-audio/">
-      <img src="images/folio/filme10.jpg" alt="Anime 2">
-      <span>Beekeeper</span>
-      <div class="play-icon"><i class="fas fa-play"></i></div>
-    </a>
-  </div>
-</div>
 
-<hr class="separator">
-
-<div class="anime-queue">
   <div class="anime-card">
     <a href="https://filmesmega.online/avatar-o-ultimo-mestre-do-ar-1a-temporada-dual-audio/">
       <img src="images/folio/filme11.jpg" alt="Anime 1">
@@ -901,12 +881,41 @@
       <div class="play-icon"><i class="fas fa-play"></i></div>
     </a>
   </div>
+  <div class="anime-card">
+    <a href="https://filmesmega.online/beekeeper-rede-de-vinganca-dual-audio/">
+      <img src="images/folio/filme10.jpg" alt="Anime 2">
+      <span>Beekeeper</span>
+      <div class="play-icon"><i class="fas fa-play"></i></div>
+    </a>
+  </div>
+  <div class="anime-card">
+    <a href="https://filmesmega.online/beekeeper-rede-de-vinganca-dual-audio/">
+      <img src="images/folio/filme10.jpg" alt="Anime 2">
+      <span>Beekeeper</span>
+      <div class="play-icon"><i class="fas fa-play"></i></div>
+    </a>
+  </div>
+  <div class="anime-card">
+    <a href="https://filmesmega.online/beekeeper-rede-de-vinganca-dual-audio/">
+      <img src="images/folio/filme10.jpg" alt="Anime 2">
+      <span>Beekeeper</span>
+      <div class="play-icon"><i class="fas fa-play"></i></div>
+    </a>
+  </div>
+  <div class="anime-card">
+    <a href="https://filmesmega.online/beekeeper-rede-de-vinganca-dual-audio/">
+      <img src="images/folio/filme10.jpg" alt="Anime 2">
+      <span>Beekeeper</span>
+      <div class="play-icon"><i class="fas fa-play"></i></div>
+    </a>
+  </div>
+</div>
 </div>
         </div> <!-- folio entries -->
 
     </div> <!-- container -->
 </section>
-
+        
             <div class="row s-testimonials">
                 <div class="column xl-12">
 
@@ -918,7 +927,7 @@
 
                             <div class="s-testimonials__slide swiper-slide">
                                 <div class="s-testimonials__author">
-                                    <img src="images/avatars/user-02.jfif" alt="Author image" class="s-testimonials__avatar">
+                                    <img src="images/avatars/user-02.jpg" alt="Author image" class="s-testimonials__avatar">
                                     <cite class="s-testimonials__cite">
                                         <strong>Amilkar Dombele</strong>
                                         <span>28 Agosto Do Dundo.</span>
@@ -928,10 +937,34 @@
                                 Amilkar ficou encantado com a vasta seleção de animes disponíveis no site. Ele encontrou todos os seus favoritos e até descobriu algumas pérolas escondidas. Amilkar está ansioso para explorar mais e mergulhar em novas aventuras emocionantes.
                                 </p>
                             </div> <!-- end s-testimonials__slide -->
+                            <div class="s-testimonials__slide swiper-slide">
+                                <div class="s-testimonials__author">
+                                    <img src="images/avatars/user-05.jpg" alt="Author image" class="s-testimonials__avatar">
+                                    <cite class="s-testimonials__cite">
+                                        <strong>Ricardo Chitambala</strong>
+                                        <span>28 Agosto Do Dundo.</span>
+                                    </cite>
+                                </div>
+                                <p>
+                                Ricardo ficou encantado com a vasta seleção de animes disponíveis no site. Ele encontrou todos os seus favoritos e até descobriu algumas pérolas escondidas. Ricardo está ansioso para explorar mais e mergulhar em novas aventuras emocionantes.
+                                </p>
+                            </div> <!-- end s-testimonials__slide -->
+                            <div class="s-testimonials__slide swiper-slide">
+                                <div class="s-testimonials__author">
+                                    <img src="images/avatars/user-07.jpg" alt="Author image" class="s-testimonials__avatar">
+                                    <cite class="s-testimonials__cite">
+                                        <strong>Neusa Fernando</strong>
+                                        <span>28 Agosto Do Dundo.</span>
+                                    </cite>
+                                </div>
+                                <p>
+                                Neusa Uma das otomes reconhecida pela comunidade ficou encantado com a vasta seleção de animes disponíveis no site. Ela encontrou todos os seus favoritos e até descobriu algumas jóias escondidas.
+                                </p>
+                            </div> <!-- end s-testimonials__slide -->
             
                             <div class="s-testimonials__slide swiper-slide">
                                 <div class="s-testimonials__author">
-                                    <img src="images/avatars/user-03.jfif" alt="Author image" class="s-testimonials__avatar">
+                                    <img src="images/avatars/user-03.jpg" alt="Author image" class="s-testimonials__avatar">
                                     <cite class="s-testimonials__cite">
                                         <strong>Luís Gomes</strong>
                                         <span>Isptec Faculdade</span>
@@ -944,7 +977,7 @@
             
                             <div class="s-testimonials__slide swiper-slide">
                                 <div class="s-testimonials__author">
-                                    <img src="images/avatars/user-01.jfif" alt="Author image" class="s-testimonials__avatar">
+                                    <img src="images/avatars/user-01.jpg" alt="Author image" class="s-testimonials__avatar">
                                     <cite class="s-testimonials__cite">
                                         <strong>Andry MArtins</strong>
                                         <span>28 Agosto Do Dundo</span>
@@ -1004,7 +1037,7 @@
                     </div>
                     <h5>Projectos Completos</h5>
                     <p>
-                   Com mais de uma 3 anos de experiência, concluí o meu primeiro projeto com sucesso. entreguei a voces resultados excepcionais para todos Voces os meus espectadores. Estou pronto para enfrentar qualquer desafio.
+                   Com mais de 3 anos de experiência, concluí o meu primeiro projeto com sucesso. entreguei a voces resultados excepcionais para todos Voces os meus espectadores. Estou pronto para enfrentar qualquer desafio.
                     </p>
                 </div> <!-- end counter-items__item -->
 
