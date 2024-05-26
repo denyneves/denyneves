@@ -141,6 +141,32 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     }
+    .anime-list .anime-card {
+    display: none;
+}
+
+  .anime-card {
+            display: none; /* Oculta todos os cards inicialmente */
+        }
+        .anime-card.visible {
+            display: block; /* Exibe apenas os cards visíveis */
+        }
+.btn-see-more {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.btn-see-more:hover {
+    background-color: #0056b3;
+}
+
 
     </style>
     <script>
@@ -471,6 +497,7 @@
                     <div class="play-icon"><i class="fas fa-play"></i></div>
                 </a>
             </div>
+            <button class="btn-see-more">Ver mais</button>
             <div class="anime-card">
                 <a href="https://animesonline.nz/animes/boku-no-hero-academia-7/">
                     <img src="images/folio/card (5).jpg" alt="My Hero Academy">
@@ -618,6 +645,7 @@
                     <div class="play-icon"><i class="fas fa-play"></i></div>
                 </a>
             </div>
+             <button class="btn-see-more">Ver mais</button>
 <div class="anime-queue">
 <h3>Filmes De Anime</h3>
 <div class="anime-queue">
@@ -726,6 +754,7 @@
       <div class="play-icon"><i class="fas fa-play"></i></div>
     </a>
   </div>
+   <button class="btn-see-more">Ver mais</button>
 </div>
 
 <hr>
@@ -909,6 +938,7 @@
       <div class="play-icon"><i class="fas fa-play"></i></div>
     </a>
   </div>
+   <button class="btn-see-more">Ver mais</button>
 </div>
 </div>
         </div> <!-- folio entries -->
@@ -1170,6 +1200,38 @@
     ================================================== -->
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.anime-queue');
+
+            sections.forEach(section => {
+                const animeCards = section.querySelectorAll('.anime-card');
+                const btnSeeMore = section.querySelector('.btn-see-more');
+
+                // Show only the first 5 items
+                animeCards.forEach((card, index) => {
+                    if (index < 5) {
+                        card.classList.add('visible');
+                    }
+                });
+
+                // Add event listener to the "Ver mais" button
+                btnSeeMore.addEventListener('click', () => {
+                    const hiddenCards = section.querySelectorAll('.anime-card:not(.visible)');
+                    hiddenCards.forEach((card, index) => {
+                        if (index < 5) {
+                            card.classList.add('visible');
+                        }
+                    });
+
+                    // Hide the button if there are no more hidden cards
+                    if (hiddenCards.length <= 5) {
+                        btnSeeMore.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
     <script>
   function searchAnimes() {
     var input, filter, cards, card, title, i;
