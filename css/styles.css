@@ -4441,3 +4441,159 @@ td:last-child {
         right: -2rem;
     }
 }
+ .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+       body {
+      font-family: Arial, sans-serif;
+    }
+
+    .anime-queue {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .anime-card {
+      width: 200px;
+      margin: 10px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+    }
+
+    .anime-card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .anime-card span {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .play-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 24px;
+      color: white;
+      display: none;
+    }
+
+    .anime-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .anime-card:hover .play-icon {
+      display: block;
+    }
+
+    @media (max-width: 600px) {
+      .anime-card {
+        width: 100%;
+      }
+    }
+    /* Exemplo de ajuste de layout para mobile */
+        @media (max-width: 576px) {
+        .header {
+        text-align: center;
+        font-size: 1.2rem;
+    }
+
+    .content {
+        padding: 1rem;
+    }
+
+    .footer {
+        text-align: center;
+        font-size: 0.8rem;
+    }
+}
+
+    .separator {
+      border: 0;
+      height: 1px;
+      background: #ddd;
+      margin: 20px 0;
+    }
+
+    #alphabet-menu a {
+      margin: 5px;
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+    }
+
+    #alphabet-menu a:hover {
+      text-decoration: underline;
+    }
+
+    .search-container {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    #search-bar {
+      width: 200px;
+      padding: 5px;
+    }
+
+    #lista-animes {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #lista-animes button {
+      margin: 5px;
+      padding: 10px 20px;
+      border: none;
+      background-color: #f0f0f0;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #lista-animes button:hover {
+      background-color: #ddd;
+    }
+
+    .faded {
+      opacity: 0.5;
+    }
+    .s-header__logo .logo span {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    }
+    .anime-list .anime-card {
+    display: none;
+}
+
+  .anime-card {
+            display: none; /* Oculta todos os cards inicialmente */
+        }
+        .anime-card.visible {
+            display: block; /* Exibe apenas os cards visíveis */
+        }
+.btn-see-more {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.btn-see-more:hover {
+    background-color: #0056b3;
+}
